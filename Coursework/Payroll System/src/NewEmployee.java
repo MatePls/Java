@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,13 +9,17 @@
  *
  * @author w1549523
  */
+
+
 public class NewEmployee extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form NewEmployee
      */
     public NewEmployee() {
         initComponents();
+        
     }
 
     /**
@@ -58,7 +63,12 @@ public class NewEmployee extends javax.swing.JFrame {
             }
         });
 
-        Title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mr", "Mrs", "Miss", "Other" }));
+        Title.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                TitleItemStateChanged(evt);
+            }
+        });
         Title.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TitleActionPerformed(evt);
@@ -78,6 +88,12 @@ public class NewEmployee extends javax.swing.JFrame {
         jScrollPane1.setViewportView(AddressField);
 
         jLabel2.setText("Address");
+
+        PayRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PayRateActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("First Name");
 
@@ -138,7 +154,7 @@ public class NewEmployee extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(59, 59, 59)
                         .addComponent(jLabel4)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,14 +215,26 @@ public class NewEmployee extends javax.swing.JFrame {
     private void SurenameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SurenameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SurenameFieldActionPerformed
-
+ 
     private void TitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleActionPerformed
-        // TODO add your handling code here:
+           
+        Title.addActionListener(new ActionListener() {
+        
+    
+        String SelectedTitle = (String) Title.getSelectedItem();
     }//GEN-LAST:event_TitleActionPerformed
-
+    }
     private void FinishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinishButtonActionPerformed
-        // TODO add your handling code here:
+        // to save all of the fields and stores them in the part time or full time database if its made in time (Unlikely)
     }//GEN-LAST:event_FinishButtonActionPerformed
+
+    private void TitleItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TitleItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TitleItemStateChanged
+
+    private void PayRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayRateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PayRateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,3 +291,4 @@ public class NewEmployee extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
+
